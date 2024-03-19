@@ -18,19 +18,31 @@
 //Selettore del tasto play
 const buttonPlay = document.querySelector("#btn-play");
 //Selettore paragrafo destinato ai numeri
-const numbersDiv = document.querySelector("#numbers");
+const numbersDiv = document.querySelector("#numbers");//Selettore paragrafo destinato ai numeri
+// numeri scelti dal giocatore.
+const userNumbers = [];
 
 
-//Click al tasto play che genera i 5 numeri della funzione per 30 secondi
+
+// Click al tasto play che genera i 5 numeri della funzione per 30 secondi
 buttonPlay.addEventListener("click", function(){
     let numbersArray = generateCasualNumbers();
-    numbersDiv.innerHTML= numbersArray;
-    setTimeout(() => numbersDiv.innerHTML = "", 3000)
+    numbersDiv.innerHTML = numbersArray;
+    setTimeout(() => numbersDiv.innerHTML = "", 3000); 
 
-    //let playerNumber = parseInt(prompt("Scegli un numero da 1 a 5"));
-    
-    
+    setTimeout(() => {
+        for (let i = 0; i < 5; i++) {
+            // Utilizzo ciclo con prompt() per ottenere 5 input dall'utente
+            const inputNumber = prompt("Inserisci un valore:");
+            
+            // Aggiungi il valore inserito dall'utente in un array
+            userNumbers.push(parseInt(inputNumber)); 
+            console.log(userNumbers)
+        }
+    }, 3100); 
 });
+
+
 
 
 
